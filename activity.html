@@ -1,0 +1,39 @@
+<ion-view title="Worktiv" hide-nav-bar="true" id="activity">
+
+  <ion-content padding="true" style="background: url(img/bkg_home.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+
+    <div class="item item-body" id="page-list-item-container2">
+
+      <div id="page-markdown2" style="margin-top:0px;color:#000000;">
+      <p>Aqui Estão Suas Atividades <strong>{{user}}</strong>!</p>
+      </div>
+
+      <ion-list id="page-list6">
+
+<!--       <ion-item class="item-avatar" id="page-list-item10">
+      <h2>Item</h2>
+      </ion-item> -->
+
+
+
+      <div ng-repeat="titulo in names">
+        {{titulo}}
+      </div>
+
+
+      </ion-list>
+
+      <div ng-repeat="titulo in names">
+        {{titulo}}
+      </div>
+
+
+      <div id="checkin-button-bar1" class="button-bar">
+      <button ui-sref="addActivity" id="checkin-button10" style="color:#2A3D8E;" class="button button-stable  button-block icon-right ion-android-checkbox-outline">Nova</button>
+
+      <button id="checkin-button11" style="color:#2A3D8E;" class="button button-stable  button-block icon-right ion-android-checkbox">Excluir</button>
+      </div>
+
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,47 @@
+<ion-view title="Worktiv" hide-nav-bar="true" id="addActivity">
+    
+    <ion-content padding="true" style="background: url(img/bkg_home.jpg) no-repeat center;background-size:cover;" class="manual-ios-statusbar-padding" scroll="false">
+        
+        <div class="item item-body" id="page-list-item-container2" style="background: transparent;  no-repeat center;background-size:cover;">
+            <div id="page-markdown2" style="margin-top:0px;color:#000000;">
+                <p>Olá, <strong>{{user}}</strong> Vamos ao Trabalho!
+                </p>
+            </div>
+
+
+            <div class="list">
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Título</span>
+                <input type="text" placeholder="Informe um Breve Título à Atividade!" ng-model="titulo">
+              </label>
+
+
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Solicitante</span>
+                <input type="text" placeholder="Nome do Solicitante" ng-model="solicitante">
+              </label>
+              
+              <label class="item item-input item-stacked-label">
+                <span class="input-label">Descrição</span>
+                <input type="text" placeholder="Descrição da Atividade" ng-model="descricao" >
+              </label>
+            </div>
+
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                  Tipo
+                </div>
+                 <select ng-model="tipo" ng-options="tipo.descr as tipo.descr for tipo in tipos">
+                 <option value="">Selecione o Tipo</option>
+                </select>
+            </label>
+
+            <div id="checkin-button-bar1" class="button-bar">
+                <button  id="addTiv-button" style="color:#2A3D8E;" class="button button-stable  button-block icon-right ion-android-checkbox-outline" ng-click="newActivity(titulo, solicitante, descricao, tipo)">Cadastrar</button>
+
+                <button ui-sref="activity" id="cancelTiv-button" style="color:#2A3D8E;" class="button button-stable  button-block icon-right ion-android-checkbox">Cancelar</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
