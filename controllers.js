@@ -95,19 +95,21 @@ function ($scope, $stateParams) {
 
   var activityRef = firebase.database().ref('activitys/');
 
-    activityRef.on('child_added', function(data) {
+  activityRef.on('child_added', function(data) {
 
-      var activitys = data.val.titulo;
-      $scope.activitys;
-      // console.log(data)
+    $scope.titulos = [];
+
+    var values = data.val();
+
+    angular.forEach(values, function(value, key) {
+      
+      $scope.titulos.push(value);
+
+      var titulo = $scope.titulos.push(value);
+         console.log(titulo)
+    }) 
+
   });
-
-  // return firebase.database().ref('activitys/' + userId ).once('value').then(function(snapshot) {
-
-  //   var activity = snapshot.val();
-  //   $scope.activity = activity;
-
-  // })
 
 }])
 
@@ -170,5 +172,46 @@ function ($scope, $stateParams) {
   //   console.log(user)
 
   // };
+
+
+//  Function para retornar o objeto inteiro do Firebase
+
+  // return firebase.database().ref('activitys/' + userId ).once('value').then(function(snapshot) {
+
+  //   var activity = snapshot.val();
+  //   $scope.activity = activity;
+
+  // })
+
+// Exemplo de Append e Preppend
+
+// <!DOCTYPE html>
+// <html ng-app="myApp" ng-controller="myCtrl">
+// <head>
+// <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+// <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-sanitize.js"></script>
+// </head>
+// <body>
+// <button ng-click="appendText()">
+//   append
+// </button>
+// <button ng-click="prependText()">
+//   prepend
+// </button>
+// <div ng-bind-html="divHtmlVar"></div>
+// <script>
+// var myApp = angular.module('myApp', ['ngSanitize'])
+// function myCtrl($scope) {
+//     $scope.divHtmlVar = '<b>main html</b>';
+//     $scope.appendText = function() {
+//       $scope.divHtmlVar = $scope.divHtmlVar + '<br/><i>appended text</i>';  
+//     }
+//     $scope.prependText = function() {
+//       $scope.divHtmlVar = '<i>prepended text</i><br/>' + $scope.divHtmlVar;  
+//     }
+// }
+// </script>
+// </body>
+// </html>    
 
 
